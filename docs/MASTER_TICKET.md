@@ -1,55 +1,60 @@
 # Master Ticket: Qwen3-VL OCR Proof of Concept
 
-**Goal:** Verify that **Qwen3-VL** can accurately convert a representative sample of your receipt/document images into structured Markdown.
+**Goal:** Verify that **Qwen3-VL** (Strictly Version 3+) can accurately convert receipt/document images into structured Markdown on a Linux CPU server.
 
-**Phase:** 1 (PoC only).
-**Input:** A manually curated folder of ~10-20 "Representative Images" (mix of clear scans, blurry receipts, simple tables, complex tables).
-**Output:** A matching folder of Markdown files for manual inspection.
+**Phase:** 1 (PoC - Linux Only).
+**Input:** A manually curated folder of ~10-20 "Representative Images".
+**Output:** A matching folder of Markdown files.
 
-### 1. Recommended Architecture (PoC)
+### 1. Architecture & Environment
 
-**Deployment Strategy:**
-*   **Recommendation:** Use **`llama-cpp-python`** with the appropriate hardware flags.
-*   **Rationale:** Lowest barrier to entry. It allows you to interact with the model directly in Python without managing a separate server architecture.
-*   **Constraint:** Must ensure the library is built with **Metal** support on Mac (for speed) and **AVX2** support on Linux (for the old CPU).
+**Environment Path:**
+*   Preferred `uv` environment: `/home/husainal-mohssen/default_env`
 
-**Hardware Assignment:**
-*   **Development (Mac M4):** Run the script here first using the **7B** model (Quantized to 4-bit/Q4_K_M).
-    *   *Why:* Fast iteration to get the prompt and image handling code right.
-*   **Evaluation (Linux Box):** Once the code works, move it to Linux and switch to the **32B** model (Quantized to Q8_0 or Q6_K).
-    *   *Why:* The M4 (16GB) cannot fit the high-fidelity 32B model. The Linux box (64GB) is the only place we can verify the "real" accuracy.
+**Model Architecture (Qwen3-VL Updates):**
+*   **Interleaved-MRoPE:** Enhanced spatial/temporal reasoning.
+*   **DeepStack:** Fuses multi-level ViT features for fine-grained detail.
+*   **Resolution:** Flexible pixel budgets (H x W multiples of 32). Recommended long edge: 1500-2000px.
 
-### 2. Functional Requirements
+**Hardware:**
+*   **System:** Linux Workstation (64GB RAM).
+*   **Compute:** CPU Only.
+*   **Constraint:**
+    *   Must fit in 64GB RAM.
+    *   Target Model: **Qwen3-VL** (32B or 72B GGUF).
+    *   **STRICT RULE:** Do NOT use Qwen 2.5 or older. If Qwen 3 is unavailable, STOP.
 
-1.  **Image Loader:**
-    *   Accept a local directory path.
-    *   Filter for valid image extensions (`.jpg`, `.png`).
-    *   *Note:* Ignore PDFs for this PoC. We will convert your test sample to images manually to isolate variables.
-2.  **Resolution Handler:**
-    *   **Recommendation:** Resize images so the long edge is approx **1500-2000px**.
-    *   *Rationale:* Qwen's vision encoder slices images into 14x14 patches. Too big = slow & potential confusion. Too small = unreadable text.
-3.  **The Prompt:**
-    *   Must instruct the model to ignore conversational filler ("Here is the text...") and output *only* Markdown.
-    *   Must explicitly ask for layout preservation (tables as Markdown tables).
-4.  **Output Generation:**
-    *   Save file as `{original_filename}_ocr.md`.
-    *   (Optional) Save the raw console log to a separate file for debugging model "thought" process.
+**Software:**
+*   **Manager:** `uv` for dependency/venv management.
+*   **Engine:** `llama-cpp-python` (Confirmed Qwen3 support as of Oct 2025).
+*   **Model Source:** Official `Qwen/Qwen3-VL-*-GGUF` or reliable community quants.
 
-### 3. Model & Data Links (Reference)
+### 2. Implementation Steps
 
-The coding agent should verify the latest model hashes, but these are the standard targets.
+#### Step 1: Sanity Check (Current Focus)
+1.  **Environment Setup:** Initialize `uv` project and install `llama-cpp-python` + `huggingface_hub`.
+2.  **Model Identification & Download:**
+    *   Identify the largest **Qwen3-VL** GGUF that fits in 64GB RAM.
+    *   Download the model + `mmproj` file.
+3.  **Resolution Handling:** Ensure scripts account for Qwen3's 16-pixel patch size and 32-pixel rounding.
+4.  **Minimal Run:** Create `sanity_check.py` to load the model and generate a text response.
 
-*   **The Library:**
-    *   [llama-cpp-python Repo](https://github.com/abetlen/llama-cpp-python) - *Installation instructions for Metal (Mac) and OpenBLAS (Linux).*
-*   **The Models (HuggingFace):**
-    *   *Target Family:* **Qwen/Qwen3-VL-Instruct** (or Qwen2.5-VL if Qwen3 is not found in GGUF format yet).
-    *   *Search Query:* `Qwen3-VL-Instruct-GGUF` or `Qwen2.5-VL-72B-Instruct-GGUF` (for the big equivalent).
-    *   *Author Reference:* Look for quants by **Qwen** (official) or **Bartowski** (reliable community quantizer).
-*   **Vision Projectors:**
-    *   *Critical:* These models require a specific "mmproj" (multimodal projector) file to handle images. The agent must download the `.mmproj` file corresponding to the model.
+#### Step 2: Functional PoC (Later)
+1.  **Image Loader:** Filter for `.jpg`, `.png`. Resize images based on Qwen3-VL specific constraints.
+2.  **Prompt Engineering:** Instruct model to output pure Markdown.
+3.  **Execution:** Run batch process, saving `{filename}_ocr.md`.
 
-### 4. Definition of Done
-1.  Python script `ocr_poc.py` runs without error on the Mac M4.
-2.  Script successfully processes a folder of 5 images.
-3.  Output Markdown files are generated.
-4.  **Manual Review:** You can open the Markdown and the Image side-by-side and confirm the prices/dates match.
+### 3. Model Details
+
+*   **Family:** Qwen3-VL (ONLY).
+*   **Likely Candidates:**
+    *   `Qwen/Qwen3-VL-32B-Instruct-GGUF`
+    *   `Qwen/Qwen3-VL-72B-Instruct-GGUF` (Highly quantized)
+*   **Files Needed:**
+    *   `.gguf` (Main Model)
+    *   `mmproj-model-f16.gguf` (Vision Adapter)
+
+### 4. Definition of Done (Step 1)
+1.  Virtual environment created.
+2.  **Qwen3-VL** model files present in `./models/`.
+3.  `sanity_check.py` runs and prints a response from the Qwen3 model.
