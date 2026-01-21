@@ -1,0 +1,18 @@
+# Heavy assets
+models/
+llama.cpp/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.python-version
+.venv/
+env/
+
+# Data & Logs
+*.log
+*.tmp
+receipt_output.txt
+repo_test_result.txt
+documents.random
+tiny_test.jpg
