@@ -1,0 +1,62 @@
+
+--- Page 1 ---
+
+```markdown
+MASSACHUSETTS
+
+DRIVER'S
+LICENSE
+
+USA
+MA
+
+1
+AL-MOHSSSEN
+2 HUSAIN ALI
+8 205 WALDEN STREET
+2R
+CAMBRIDGE, MA 02140-3509
+
+5 DD 03-14-2012 Rev 07-15-2009
+
+4a ISS 03-12-2012
+4b EXP 07-10-2016
+9 CLASS D
+12 REST NONE
+15 SEX M
+16 HGT 6-03
+
+3 DOB 07-10-1977
+
+9a END NONE
+4d NUMBER S97770801
+
+1788
+
+REGISTRAR
+Rahim Kapadia
+
+07-18-1977
+```
+
+--- Page 2 ---
+
+```markdown
+MA
+
+www.mass.gov/rmv
+MA 03-14-2012
+
+07-10-1977
+CLASS -
+D: Small vehicle less than 26,001
+lbs, except school bus.
+
+ENDORSEMENTS -
+NONE
+
+RESTRICTIONS -
+NONE
+
+CHANGE OF ADDRESS. PRINT BELOW. PERMANENT INK.
+```

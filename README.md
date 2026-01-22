@@ -1,43 +1,41 @@
-# Local LLM Exploration 🚀
+# Local Qwen3-VL OCR (MLX)
 
-The goal of this project is to explore running Large Language Models (LLMs) locally. 💻
+A modular, high-performance OCR pipeline for Mac Silicon (M-series) using **Qwen3-VL-8B**.
 
-## Current Focus 🔍
+## Features
 
-Using **Qwen3-VL** for high-quality multimodal OCR and document parsing.
+- **Hardware Optimized:** Runs efficiently on 16GB/24GB Macs using `mlx-vlm`.
+- **Memory Safe:** Automatic image resizing (max 1024px) to prevent OOM errors on large files.
+- **PDF Support:** Processes multi-page PDFs page-by-page.
+- **Modular:** Separated into `ocr_engine.py` (Core Logic) and `pdf_processor.py` (Utils).
 
-## Setup Instructions (Mac M4 / Linux) 🛠️
+## Setup
 
-### 1. Environment
-This project uses `uv` for python management.
+1. **Environment:** Ensure you are in a Python environment with `mlx`, `mlx-vlm`, `pillow`, `pdf2image`, and `pdf2image`'s system dependency `poppler`.
+
+   ```bash
+   brew install poppler
+   pip install mlx mlx-vlm pillow pdf2image
+   ```
+
+## Usage
+
+Place your images (`.jpg`, `.png`) or documents (`.pdf`) in the `poc_images/` directory.
+
+Run the main script:
+
 ```bash
-# Install dependencies
-uv sync
+python3 process_images_mlx_v3.py
 ```
 
-### 2. Build llama.cpp
-The `llama.cpp` directory is ignored by git. You need to clone and build it locally for your architecture (Metal on Mac M4):
-```bash
-git clone https://github.com/ggerganov/llama.cpp
-cd llama.cpp
-cmake -B build -DGGML_METAL=ON  # Use Metal for M4
-cmake --build build --config Release -j
-cd ..
-```
+The script will:
+1. Scan `poc_images/`.
+2. Process each file (splitting PDFs into temporary page images).
+3. Generate a Markdown text file (`.mlx.txt`) for each input.
 
-### 3. Download Models
-Use the provided script to download the GGUF models:
-```bash
-./download_models.sh
-```
+## Project Structure
 
-### 4. Run Server
-Start the Qwen3-VL server:
-```bash
-./run_qwen_server.sh
-```
-
-## Tools 🧰
-- `main.py`: Main entry point for processing.
-- `test_server.py`: Test the running server.
-- `download_models.sh`: Helper to fetch models from HuggingFace.
+- `process_images_mlx_v3.py`: Main orchestrator script.
+- `ocr_engine.py`: Core module for model loading and inference.
+- `pdf_processor.py`: Utilities for handling PDF page extraction.
+- `poc_images/`: Input directory for files to process.
