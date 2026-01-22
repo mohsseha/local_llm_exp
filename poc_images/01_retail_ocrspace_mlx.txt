@@ -1,5 +1,0 @@
-The text in the image is:
-
-```
-OCRspace
-```

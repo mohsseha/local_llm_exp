@@ -12,6 +12,7 @@ env/
 # Data & Logs
 *.log
 *.tmp
+*.mlx.txt
 receipt_output.txt
 repo_test_result.txt
 documents.random
