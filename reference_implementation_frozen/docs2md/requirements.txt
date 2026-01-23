@@ -1,0 +1,9 @@
+pypandoc
+colorlog
+google-generativeai
+pandas
+openpyxl
+tabulate
+mail-parser
+html2text
+tnefparse

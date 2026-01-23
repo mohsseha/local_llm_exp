@@ -1,0 +1,51 @@
+From: marketing-automation@example.com
+To: cfo@example.com
+Subject: Weekly Marketing Newsletter
+Content-Type: multipart/mixed; boundary="===============6196719995190659405=="
+
+--===============6196719995190659405==
+Content-Type: multipart/alternative;
+ boundary="===============5040147637172165136=="
+
+--===============5040147637172165136==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+This is the newsletter. Please enable HTML to see images.
+
+--===============5040147637172165136==
+Content-Type: multipart/related;
+ boundary="===============9149694324069588567=="
+
+--===============9149694324069588567==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><p>Check out our new logo!</p><img src=3D"cid:logo_image"></body>=
+</html>
+
+--===============9149694324069588567==
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-ID: <logo_image>
+Content-Disposition: inline; filename="logo.png"
+
+iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAA
+AABJRU5ErkJggg==
+
+--===============9149694324069588567==--
+
+--===============5040147637172165136==--
+
+--===============6196719995190659405==
+Content-Type: application/pdf
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="newsletter_promo.pdf"
+MIME-Version: 1.0
+
+JVBERi0xLjAKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCg==
+
+--===============6196719995190659405==--

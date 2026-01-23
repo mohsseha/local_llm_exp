@@ -1,0 +1,36 @@
+From: global-team@example.com
+To: cfo@example.com
+Subject: =?utf-8?b?8J+agCBQcm9qZWN0IFBob2VuaXggVXBkYXRlIPCfp5HigI3wn5qAICg=?=
+ =?utf-8?b?2YXmm7TmlrAp?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============8656965029453258083=="
+
+--===============8656965029453258083==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Hello Team,
+Please find the project update attached.
+
+--===============8656965029453258083==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+
+    <html>
+      <head>
+        <meta charset="UTF-8">
+      </head>
+      <body>
+        <p>Hello Team,</p>
+        <p>Please find the project update attached.</p>
+        <p dir="rtl">مرحبا بالعالم</p>
+        <p>你好世界</p>
+        <p>And here is a complex emoji: 🧑‍🚀</p>
+      </body>
+    </html>
+    
+
+--===============8656965029453258083==--

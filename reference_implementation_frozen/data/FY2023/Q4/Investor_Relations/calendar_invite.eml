@@ -1,0 +1,28 @@
+From: scheduler@example.com
+To: board@example.com
+Subject: Board Meeting Q4
+Content-Type: multipart/mixed; boundary="===============8471929939311838731=="
+
+--===============8471929939311838731==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+Please see the attached meeting invitation.
+
+--===============8471929939311838731==
+Content-Type: text/calendar; method="REQUEST"; name="invite.ics"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+Content-Disposition: attachment; filename="invite.ics"
+
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:Q4 Board Meeting
+DTSTART:20231215T130000Z
+DTEND:20231215T150000Z
+END:VEVENT
+END:VCALENDAR
+
+--===============8471929939311838731==--

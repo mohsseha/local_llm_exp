@@ -1,0 +1,9 @@
+From: newsletter@example.com
+To: recipient@example.com
+Subject: HTML Only Newsletter
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><h1>Q4 Results</h1><p>We saw a <b>significant</b> increase in gro=
+wth.</p></body></html>

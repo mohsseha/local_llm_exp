@@ -1,0 +1,21 @@
+From: corporate.outlook@example.com
+To: recipient@example.com
+Subject: Meeting Follow-up with TNEF
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============1888584948348004988=="
+
+--===============1888584948348004988==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Please see the attached notes.
+
+--===============1888584948348004988==
+Content-Type: application/ms-tnef
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="winmail.dat"
+MIME-Version: 1.0
+
+eJxjZGJmYWUDAAALAAQ=
+
+--===============1888584948348004988==--

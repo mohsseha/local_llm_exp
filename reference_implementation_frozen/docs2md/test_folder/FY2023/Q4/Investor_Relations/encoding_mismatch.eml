@@ -1,0 +1,7 @@
+From: sender@example.com
+To: recipient@example.com
+Subject: Encoding Mismatch
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+
+This invoice is for 100€.

@@ -1,0 +1,15 @@
+# Defines the multi-container application stack for chbird.ai
+services:
+  app:
+    build:
+      # The app service builds from the temporary context directory
+      # that the build script prepares with secrets.
+      context: ./tmp-build-dir
+    container_name: chbirdai.local
+    image: chbird-app:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      # Mount the shared data volume as read-write for the main app.
+      - "${HOST_PERSISTENT_DATA_DIR}:/opt/chbird:rw"

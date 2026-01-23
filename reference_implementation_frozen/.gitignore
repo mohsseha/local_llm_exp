@@ -1,0 +1,8 @@
+# Ignore temporary docker build context directory
+tmp-build-dir/
+
+# Standard Python ignores
+*.pyc
+__pycache__/
+.DS_Store
+*.env

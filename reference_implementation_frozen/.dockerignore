@@ -1,0 +1,38 @@
+# Git files
+.git
+.gitignore
+
+# Local Python cache/build files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Local build context (if script is run from a parent dir)
+build_ctx/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo

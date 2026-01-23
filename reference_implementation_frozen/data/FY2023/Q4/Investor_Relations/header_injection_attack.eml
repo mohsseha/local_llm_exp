@@ -1,0 +1,6 @@
+From: "Valid Name <valid@example.com>
+Bcc: hidden@example.com"
+To: recipient@example.com
+Subject: Header Injection Test
+
+This email tests for header injection vulnerabilities.

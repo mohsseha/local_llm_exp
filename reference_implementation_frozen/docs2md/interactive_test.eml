@@ -1,0 +1,21 @@
+From: "Alice" <alice@example.com>
+To: "Bob" <bob@example.com>
+Subject: Interactive Test
+Date: Sat, 07 Sep 2025 10:00:00 -0000
+Message-ID: <test1234@example.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="boundary42"
+
+--boundary42
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Hello, this is a test.
+
+--boundary42
+Content-Type: text/plain; name="test_attachment.txt"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="test_attachment.txt"
+
+SGVsbG8gV29ybGQh
+--boundary42--

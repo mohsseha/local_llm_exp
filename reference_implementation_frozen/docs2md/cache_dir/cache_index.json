@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "created": "2025-09-06T21:38:23.868846",
+    "last_updated": "2025-09-06T21:38:26.401812",
+    "file_count": 5
+  },
+  "files": {
+    "42e416d677ee3f02734614b8e09d1fb4ead53f3b27e8124d09778293fd410c16": {
+      "original_filename": "readme.md",
+      "cached_on": "2025-09-06T21:38:25.892936",
+      "output_path": "test_folder_output/readme.md.md",
+      "file_type": "text",
+      "is_large": false,
+      "conversion_mode": "direct",
+      "stats": {}
+    },
+    "0349f3597d8403c8c00507d8091bf7c07a7227f8e8db33a55ce44049dc2eb5bc": {
+      "original_filename": "report.txt",
+      "cached_on": "2025-09-06T21:38:25.918350",
+      "output_path": "test_folder_output/FY2023/Q4/Investor_Relations/report.txt.md",
+      "file_type": "text",
+      "is_large": false,
+      "conversion_mode": "direct",
+      "stats": {}
+    },
+    "9d61746c49ab3c34f161f3df2ece296fe3b9e6e2a7fa17dd0141a811f1065a23": {
+      "original_filename": "report.pdf",
+      "cached_on": "2025-09-06T21:38:25.967376",
+      "output_path": "test_folder_output/FY2023/Q4/Investor_Relations/report.pdf.md",
+      "file_type": "pdf",
+      "is_large": false,
+      "conversion_mode": "direct",
+      "stats": {}
+    },
+    "c3e5a46176a2954f390a3ff04d8ba4deca49301d343ec252da457396d9ec5ce2": {
+      "original_filename": "financials.xlsx",
+      "cached_on": "2025-09-06T21:38:26.042620",
+      "output_path": "test_folder_output/FY2023/Q4/Investor_Relations/financials.xlsx.md",
+      "file_type": "excel",
+      "is_large": false,
+      "conversion_mode": "direct",
+      "stats": {}
+    },
+    "c965818b26151dc87a850836c04de0c9d3a7d3bbdd274069969fb59430d8a30e": {
+      "original_filename": "report.docx",
+      "cached_on": "2025-09-06T21:38:26.401590",
+      "output_path": "test_folder_output/FY2023/Q4/Investor_Relations/report.docx.md",
+      "file_type": "word",
+      "is_large": false,
+      "conversion_mode": "direct",
+      "stats": {}
+    }
+  }
+}

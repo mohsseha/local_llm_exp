@@ -1,0 +1,11 @@
+From: international.sender@example.com
+To: recipient@example.com
+Subject: Notes with special characters: =?utf-8?b?w6nDoMOnw7w=?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This is a line that is designed to be longer than the typical 76-character li=
+mit to see how the line wrapping is handled.
+It also includes special characters like r=C3=A9sum=C3=A9 and fa=C3=A7ade.
+Final line.
